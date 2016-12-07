@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="jumbo">
+    <h2>Your Twitter Profile<h2>
+    <h3>This is {{ session['email'] }}'s profile page<h3>
+    <button><a href="{{ url_for('blog') }}">Write a Blog Post</a></button>
+     <button><a href="{{ url_for('date') }}">Update Information</a></button>  
+  </div>
+{% endblock %}
+

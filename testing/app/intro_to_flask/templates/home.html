@@ -1,9 +1,15 @@
 {% extends "layout.html" %}
 {% block content %}
-  <div class="jumbo">
-    <h2>Welcome to the Flask app<h2>
-    <h3>This is the home page for the Flask app<h3>
-    
+  <div class="jumbotron">
+    <h1 style = "color: navy;">Twitter Blog: Tweet Tweet<h1>
+    <h5> </h5>
+    <ul>
+    {% for newpost in posts %}
+    	<h2>{{ newpost.title }}</h2>{{ newpost.post|safe }}
+    {% else %}
+    	<li><em>No entries</em></li>
+    {% endfor %}
+    </ul>
   </div>
 {% endblock %}
 

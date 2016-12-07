@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="jumbotron">
+    <h1 style = "color: navy;">SingleANDTrynaMingle<h1>
+    <h5> </h5>
+    <ul>
+    {% for newdate in dates %}
+    	<h3>{{ newdate.firstname }} {{ newdate.lastname }}</h3>
+    	<h5>{{ newdate.email }}</h5>{{ newdate.hobbies|safe }}
+    {% else %}
+    	<li><em>No entries</em></li>
+    {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+  <h2>Post Your Information for Potential Daters</h2>
+
+  {% if success %}
+	<p>Thank you for your post. It'll be displayed on the home page's dating section.</p>
+  {% else %}
+ 
+	  {% for message in form.firstname.errors %}
+	    <div class="flash">{{ message }}</div>
+	  {% endfor %}
+	   
+	  {% for message in form.lastname.errors %}
+	    <div class="flash">{{ message }}</div>
+	  {% endfor %}
+
+	  {% for message in form.email.errors %}
+	  	<div class="flash">{{ message }}</div>
+	  {% endfor %}
+	   
+	  {% for message in form.hobbies.errors %}
+	    <div class="flash">{{ message }}</div>
+	  {% endfor %}
+	   
+	  <form action="{{ url_for('date') }}" method=post>
+	    {{ form.hidden_tag() }}
+	     
+	    {{ form.firstname.label }}
+	    {{ form.firstname }}
+	     
+	    {{ form.lastname.label }}
+	    {{ form.lastname }}
+
+	    {{ form.email.label }}
+	    {{ form.email }}
+	     
+	    {{ form.hobbies.label }}
+	    {{ form.hobbies }}
+	     
+	    {{ form.submit }}
+	  </form>
+  {% endif %}
+     
+{% endblock %}

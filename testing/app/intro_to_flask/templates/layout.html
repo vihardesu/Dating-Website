@@ -2,24 +2,43 @@
 <html>
   <head>
     <title>Polling App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">    
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">   
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"> 
   </head>
   <body>
    
     <header>
       <div class="container">
-        <h1 class="logo">Polling App</h1>
+        <h1 class="logo">Formspring</h1>
         <!-- CSS for These Isn't seem to register -->
-        <a href="{{ url_for('home') }}">Home</a>
+        <a id="moveplease" href="{{ url_for('home') }}">Home</a>
         <a href="{{ url_for('about') }}">About</a>
         <a href="{{ url_for('contact') }}">Contact</a>
-       <!--  <strong><nav>
-          <ul class="menu">
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
-            <li><a href="{{ url_for('contact') }}">Contact</a></li>
-          </ul>
-        </nav></strong> -->
+        {% if 'email' in session %}
+        <a href="{{ url_for('profile') }}">Profile</a>
+        <a href="{{ url_for('signout') }}">Sign Out</a>
+        <a href="{{ url_for('blog') }}">Blog Post</a>
+        <a href="{{ url_for('date') }}">Dating Info</a>
+        <a href="{{ url_for('dateview') }}">Dating Section</a>
+        {% else %}
+        <a href="{{ url_for('signup') }}">Sign Up</a>
+        <a href="{{ url_for('signin') }}">Sign In</a>
+        {% endif %}
+    <!--   <nav>
+        <ul class="menu">
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          {% if 'email' in session %}
+          <li><a href="{{ url_for('profile') }}">Profile</a></li>
+          <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
+          {% else %}
+          <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+          <li><a href="{{ url_for('signin') }}">Sign In</a></li>
+          {% endif %}
+        </ul>
+      </nav> -->
       </div>
     </header> 
      

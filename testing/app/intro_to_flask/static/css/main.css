@@ -3,11 +3,20 @@ body {
   padding: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #444;
+  background-image: url("static/back.jpg");
 }
  
 /*
  * Create dark grey header with a white logo
  */
+  
+body > header > div > a:nth-child(2){
+  margin-left: 10px;
+}
+
+a#moveplease{
+    margin-left: 10px !important;
+}
   
 header {
   background-color: #2B2B2B;
@@ -20,7 +29,7 @@ header {
 header h1.logo {
   margin: 0;
   font-size: 1.7em;
-  color: #fff;
+  color: navy;
   text-transform: uppercase;
   float: left;
 }
@@ -91,5 +100,23 @@ h3 {
 .menu li a {
   color: #999;
   text-decoration: none;
+}
+
+/* Signup form */
+form input#firstname,
+form input#lastname,
+form input#password {
+  width: 400px;
+  background-color: #fafafa;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  border: 1px solid #cccccc;
+  padding: 5px;
+  font-size: 1.1em;
+}
+ 
+form input#password {
+  margin-bottom: 10px;
 }
 

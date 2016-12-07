@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+  <h2>Post a Blog</h2>
+
+  {% if success %}
+	<p>Thank you for your post. It'll be displayed on the home page.</p>
+  {% else %}
+ 
+	  {% for message in form.title.errors %}
+	    <div class="flash">{{ message }}</div>
+	  {% endfor %}
+	   
+	  {% for message in form.post.errors %}
+	    <div class="flash">{{ message }}</div>
+	  {% endfor %}
+	   
+	  <form action="{{ url_for('blog') }}" method=post>
+	    {{ form.hidden_tag() }}
+	     
+	    {{ form.title.label }}
+	    {{ form.title }}
+	     
+	    {{ form.post.label }}
+	    {{ form.post }}
+	     
+	    {{ form.submit }}
+	  </form>
+  {% endif %}
+     
+{% endblock %}
